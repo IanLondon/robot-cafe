@@ -1,0 +1,27 @@
+[tool.poetry]
+name = "robot-cafe"
+version = "0.1.0"
+description = ""
+authors = ["IanLondon <ianlondondu@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+ortools = "^9.9.3963"
+Flask = "^3.0.3"
+
+[tool.poetry.group.dev.dependencies]
+ruff = "^0.4.1"
+pyright = "^1.1.359"
+pytest = "^8.1.1"
+taskipy = "^1.12.2"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.taskipy.tasks]
+dev = { cmd = "flask --app src/server --debug run", help = "run Flask dev server" }
+lint = { cmd = "ruff check .", help = "lint (with ruff)" }
+format = { cmd = "ruff format .", help = "format (with ruff)" }
+check = { cmd = "pyright .", help = "check types (with pyright)" }
