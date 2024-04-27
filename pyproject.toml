@@ -9,6 +9,8 @@ readme = "README.md"
 python = "^3.11"
 ortools = "^9.9.3963"
 Flask = "^3.0.3"
+pyright = "^1.1.360"
+jsonschema = "^4.21.1"
 
 [tool.poetry.group.dev.dependencies]
 ruff = "^0.4.1"
@@ -21,7 +23,11 @@ requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
 
 [tool.taskipy.tasks]
-dev = { cmd = "flask --app src/server --debug run", help = "run Flask dev server" }
-lint = { cmd = "ruff check .", help = "lint (with ruff)" }
-format = { cmd = "ruff format .", help = "format (with ruff)" }
 check = { cmd = "pyright .", help = "check types (with pyright)" }
+dev = { cmd = "flask --app src/robot_cafe/server --debug run", help = "run Flask dev server" }
+format = { cmd = "ruff format .", help = "format (with ruff)" }
+lint = { cmd = "ruff check .", help = "lint (with ruff)" }
+test = { cmd = "pytest", help = "test" }
+
+[tool.pytest.ini_options]
+addopts = ["--import-mode=importlib"]

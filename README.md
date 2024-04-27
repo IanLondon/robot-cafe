@@ -4,6 +4,6 @@
 - Install [poetry](https://python-poetry.org/)
 - Use poetry to install dependencies with `poetry install`
 
-# Tasks
+# Tasks (type check, lint, test, etc)
 
 To see documentation for tasks, do: `poetry run task --list`
